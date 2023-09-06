@@ -47,6 +47,9 @@ ifndef BUILD_AUTOUPDATER  # DON'T build unless you mean to!
   BUILD_AUTOUPDATER=0
 endif
 
+# include configuration for instagram mod
+-include Makefile.instagram
+
 #############################################################################
 #
 # If you require a different configuration from the defaults below, create a

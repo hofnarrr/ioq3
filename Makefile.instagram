@@ -1,0 +1,3 @@
+BASEGAME     = instagram
+BUILD_SERVER = 0
+BUILD_CLIENT = 0
