@@ -24,6 +24,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 #include "g_local.h"
 
+// define this to make players drop weapons on death
+#undef IG_DROP_WEAPONS_ON_DEATH
 
 /*
 ============
@@ -75,10 +77,11 @@ Toss the weapon and powerups for the killed player
 */
 void TossClientItems( gentity_t *self ) {
 	gitem_t		*item;
-	int			weapon;
 	float		angle;
 	int			i;
 	gentity_t	*drop;
+#ifdef IG_DROP_WEAPONS_ON_DEATH
+	int 		weapon;
 
 	// drop the weapon if not a gauntlet or machinegun
 	weapon = self->s.weapon;
@@ -104,6 +107,7 @@ void TossClientItems( gentity_t *self ) {
 		// spawn the item
 		Drop_Item( self, item, 0 );
 	}
+#endif
 
 	// drop all the powerups if not in teamplay
 	if ( g_gametype.integer != GT_TEAM ) {
