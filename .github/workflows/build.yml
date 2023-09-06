@@ -13,8 +13,8 @@ jobs:
       - name: Compile
         run: make -j$(nproc)
       - name: Archive
-        run: tar -C build/release-linux-x86_64/ -czvf ioq3-instagram.tar.gz instagram/vm/
+        run: tar -C build/release-linux-x86_64/ -czvf build/ioq3-instagram.tar.gz instagram/vm/
       - uses: actions/upload-artifact@v3
         with:
           name: instagram
-          path: '*.tar.gz'
+          path: 'build/*.tar.gz'
