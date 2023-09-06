@@ -35,6 +35,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
   movers and respawn appropriately.
 */
 
+// define this to enable item spawns in map
+#undef IG_ENABLE_ITEM_SPAWNS
 
 #define	RESPAWN_ARMOR		25
 #define	RESPAWN_HEALTH		35
@@ -886,6 +888,7 @@ be on an entity that hasn't spawned yet.
 ============
 */
 void G_SpawnItem (gentity_t *ent, gitem_t *item) {
+#ifdef IG_ENABLE_ITEM_SPAWNS
 	G_SpawnFloat( "random", "0", &ent->random );
 	G_SpawnFloat( "wait", "0", &ent->wait );
 
@@ -910,6 +913,7 @@ void G_SpawnItem (gentity_t *ent, gitem_t *item) {
 	if ( item->giType == IT_PERSISTANT_POWERUP ) {
 		ent->s.generic1 = ent->spawnflags;
 	}
+#endif
 #endif
 }
 
