@@ -1634,11 +1634,6 @@ static void PM_Weapon( void ) {
 		return;
 	}
 
-	// take an ammo away if not infinite
-	if ( pm->ps->ammo[ pm->ps->weapon ] != -1 ) {
-		pm->ps->ammo[ pm->ps->weapon ]--;
-	}
-
 	// fire weapon
 	PM_AddEvent( EV_FIRE_WEAPON );
 
