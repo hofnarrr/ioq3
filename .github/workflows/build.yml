@@ -13,11 +13,12 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y build-essential
-      - name: Compile
+      - name: Build
         run: make -j$(nproc)
       - name: Archive
         run: tar -C build/release-linux-x86_64/ -czvf build/ioq3-instagram.tar.gz instagram/vm/
-      - uses: ncipollo/release-action@v1
+      - name: Create a release
+        uses: ncipollo/release-action@v1
         with:
           artifacts: 'build/ioq3-instagram.tar.gz'
           skipIfReleaseExists: true
