@@ -1,3 +1,4 @@
 BASEGAME     = instagram
 BUILD_SERVER = 0
 BUILD_CLIENT = 0
+BUILD_GAME_SO = 0
