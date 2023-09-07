@@ -6,7 +6,7 @@
 
   1. Get the source
   2. Install dependencies
-    - Debian/Ubuntu: `$ apt install build-essential`
+      - Debian/Ubuntu: `$ apt install build-essential`
   3. Run `make -j$(nproc)`.
 
 
