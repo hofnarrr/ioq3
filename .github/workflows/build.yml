@@ -1,8 +1,11 @@
-name: Build
-on: [push, pull_request]
+name: Build and release
+on:
+  push:
+    tags:
+      - 'v*.*.*'
 
 jobs:
-  build-qvm:
+  build-and-release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -14,7 +17,7 @@ jobs:
         run: make -j$(nproc)
       - name: Archive
         run: tar -C build/release-linux-x86_64/ -czvf build/ioq3-instagram.tar.gz instagram/vm/
-      - uses: actions/upload-artifact@v3
+      - uses: ncipollo/release-action@v1
         with:
-          name: instagram
-          path: 'build/*.tar.gz'
+          artifacts: 'build/ioq3-instagram.tar.gz'
+          skipIfReleaseExists: true
